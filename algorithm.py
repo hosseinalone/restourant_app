@@ -14,11 +14,11 @@ class logics:
         
     def submitlogininfo(self,radiobutton,useranme):
         if radiobutton == "مشتری":
-            self.cur.execute("create table if not exists customer (id INTEGER PRIMARY KEY AUTOINCREMENT , name text)")
+            self.cur.execute("create table if not exists customer (id INTEGER PRIMARY KEY AUTOINCREMENT , name string)")
             self.cur.execute("insert into customer(name) values (?)",(useranme,))
             self.database.commit()
         elif radiobutton == "ادمین":
-            self.cur.execute("create table if not exists admin (id INTEGER PRIMARY KEY AUTOINCREMENT , name text , password integer unique)")
+            self.cur.execute("create table if not exists admin (id INTEGER PRIMARY KEY AUTOINCREMENT , name string , password integer unique)")
             self.cur.execute("insert into admin(name) values (?)",(useranme,))
             self.database.commit()
 
