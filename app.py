@@ -26,11 +26,11 @@ class apps(logics):
         # ------------ ----------------- radio button  ------------ ----------------- #
         
         self.role_var = StringVar()
-        self.role_var.set("مشتری")
+        
         
         def printer(rolevar):
             print("item : \n",self.role_var , "\n is seleted")
-            submitradio(rolevar)
+            
 
         def submitradio(rolevar):
             logics.submitlogininfo(self,rolevar,username_entry.get())
@@ -45,7 +45,7 @@ class apps(logics):
         
         
 
-        submit = Button(self.lform,text="ثبت",font=("Vazir",12,"bold"),padx=20,pady=5)
+        submit = Button(self.lform,text="ثبت",font=("Vazir",12,"bold"),padx=20,pady=5,command=lambda:submitradio(self.role_var.get()))
         submit.place(x=65,y=180)
 
        
