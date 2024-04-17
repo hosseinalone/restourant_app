@@ -8,9 +8,10 @@ class apps(logics):
 
     def loginform(self):
         
-        self.lform = Tk()
+    
+        self.lform = Tk()        
+        self.lform.geometry("200x300")
         
-        self.lform.geometry("200x200")
 
         welcome_text = Label(self.lform, text="خوش امدید", font=("Vazir", 20, "bold"))
         welcome_text.place(x=40, y=10)
@@ -21,8 +22,24 @@ class apps(logics):
         username_entry = Entry(self.lform)
         username_entry.place(x=40, y=100)
 
-        self.lform.mainloop()
+        
+        # ------------ ----------------- radio button  ------------ ----------------- #
+        
+        self.role_var = StringVar()
+        self.role_var.set("مشتری")
 
+        admin_radio = Radiobutton(self.lform,text="مدیر",variable=self.role_var,value="ادمین" , font=("Vazir",12))
+        admin_radio.place(x=30,y=130)
+
+        customer_radio = Radiobutton(self.lform,text="مشتری",variable=self.role_var,value="مدیر" , font=("Vazir",12))
+        customer_radio.place(x=100,y=130)
+
+
+        submit = Button(self.lform,text="ثبت",font=("Vazir",12,"bold"),padx=20,pady=5)
+        submit.place(x=65,y=180)
+
+        
+        self.lform.mainloop()
 
 
 
