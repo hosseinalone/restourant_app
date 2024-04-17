@@ -26,18 +26,28 @@ class apps(logics):
         # ------------ ----------------- radio button  ------------ ----------------- #
         
         self.role_var = StringVar()
-        self.role_var.set("مشتری")
+        
+        
 
-        admin_radio = Radiobutton(self.lform,text="مدیر",variable=self.role_var,value="ادمین" , font=("Vazir",12))
+        admin_radio = Radiobutton(self.lform,text="مدیر",variable=self.role_var,value="ادمین" , font=("Vazir",12),command=printer(self.role_var.get()))
         admin_radio.place(x=30,y=130)
 
-        customer_radio = Radiobutton(self.lform,text="مشتری",variable=self.role_var,value="مدیر" , font=("Vazir",12))
+        customer_radio = Radiobutton(self.lform,text="مشتری",variable=self.role_var,value="مدیر" , font=("Vazir",12),command=printer(self.role_var.get()))
         customer_radio.place(x=100,y=130)
 
+        # ------------ ----------------- the function for when it pressed the submit  ------------ ----------------- #
+        
+        def printer(rolevar):
+            print("item : \n",self.role_var , "\n is seleted")
+            submitradio(rolevar)
+
+        def submitradio(rolevar):
+            logics.submitlogininfo(self,rolevar,username_entry.get())
 
         submit = Button(self.lform,text="ثبت",font=("Vazir",12,"bold"),padx=20,pady=5)
         submit.place(x=65,y=180)
 
+       
         
         self.lform.mainloop()
 
