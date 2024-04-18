@@ -6,6 +6,7 @@ from tkinter import messagebox
 # ------------ the algorithms -------------- #
 
 class logics:
+
     def __init__(self) -> None:
         self.database = connect("database.db")
         self.cur = self.database.cursor()
@@ -17,24 +18,27 @@ class logics:
     def submitlogininfo(self,radiobutton,useranme):
         
         try:
+            
             self.database = connect("database.db")
+            self.cur = self.database.cursor()
 
             if radiobutton == "مشتری":
                 
-                self.cur.execute("INSERT INTO customer(name) values (?)",(useranme))
+                self.cur.execute("INSERT INTO customer(name) values (?)",(useranme,))
                 self.database.commit()
-                self.database.close()
+                
 
             elif radiobutton == "ادمین":
-            
-            
                 self.cur.execute("insert into admin(name) values (?)",(useranme,))
                 self.database.commit()
-                self.database.close()
 
-        except SQLITE_INSERT:
-            messagebox.showerror("the data could not be inserted !!! ","error")
+            
 
+        except IntegrityError:
+                messagebox.showerror("The data could not be inserted!", "Error")
+
+        finally:
+             self.database.close()
 
 
 
