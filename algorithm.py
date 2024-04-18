@@ -28,7 +28,7 @@ class logics:
                 self.database.commit()
                 
 
-            elif radiobutton == "ادمین":
+            elif radiobutton == "مدیر":
                 self.cur.execute("insert into admin(name) values (?)",(useranme,))
                 self.database.commit()
 

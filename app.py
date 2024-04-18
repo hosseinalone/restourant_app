@@ -35,10 +35,10 @@ class apps(logics):
         
             
 
-        admin_radio = Radiobutton(self.lform,text="مدیر",variable=self.role_var,value="ادمین" , font=("Vazir",12),command=lambda: printer(self.role_var.get()))
+        admin_radio = Radiobutton(self.lform,text="مدیر",variable=self.role_var,value="مدیر" , font=("Vazir",12),command=lambda: printer(self.role_var.get()))
         admin_radio.place(x=30,y=130)
 
-        customer_radio = Radiobutton(self.lform,text="مشتری",variable=self.role_var,value="مدیر" , font=("Vazir",12),command=lambda: printer(self.role_var.get()))
+        customer_radio = Radiobutton(self.lform,text="مشتری",variable=self.role_var,value="مشتری" , font=("Vazir",12),command=lambda: printer(self.role_var.get()))
         customer_radio.place(x=100,y=130)
 
         # ------------ ----------------- when it pressed the submit  ------------ ----------------- #
