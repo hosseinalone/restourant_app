@@ -4,7 +4,7 @@ from algorithm import logics
 
 class apps(logics):
     
-    # ------------ ----------------- login app  ------------ ----------------- #
+#  login app  ----------------------------- 
 
     def loginform(self):
         
@@ -41,7 +41,7 @@ class apps(logics):
         customer_radio = Radiobutton(self.lform,text="مشتری",variable=self.role_var,value="مدیر" , font=("Vazir",12),command=lambda: printer(self.role_var.get()))
         customer_radio.place(x=100,y=130)
 
-        # ------------ ----------------- the function for when it pressed the submit  ------------ ----------------- #
+        # ------------ ----------------- when it pressed the submit  ------------ ----------------- #
         
         
 
