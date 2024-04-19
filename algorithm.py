@@ -1,7 +1,7 @@
 #------------- imports : 
 
 from sqlite3 import *
-from tkinter import messagebox
+from tkinter import *
 
 # ------------ the algorithms -------------- #
 
@@ -29,13 +29,13 @@ class logics:
                 
 
             elif radiobutton == "مدیر":
-                self.cur.execute("insert into admin(name) values (?)",(useranme,))
-                self.database.commit()
+                adminname1  = self.cur.execute('select name from admin')
+                print(adminname1)
 
             
 
         except IntegrityError:
-                messagebox.showerror("The data could not be inserted!", "Error")
+                print("The data could not be inserted!", "Error")
 
         finally:
              self.database.close()
